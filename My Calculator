@@ -1,0 +1,201 @@
+// Suleman Itmer
+// My Calculator
+
+//importing tools
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class ReviewControlStructure 
+{
+	//keyboard
+	Scanner keyboard = new Scanner (System.in);
+	
+	public static void main(String[] args)
+	{	
+	// output format	
+	DecimalFormat df2 = new DecimalFormat(".##");
+	
+	// call menu
+	ReviewControlStructure  call = new ReviewControlStructure ();
+	int menuNum= call.Mainmenu();
+	
+	// keep on running until player hit 0
+	while (	menuNum != 0)
+	{
+	// the option the user has selected	
+			switch (menuNum) 
+			{
+				case 1:
+				{
+          System.out.println("\n" + "You have selected to " + "Add two integers");
+					
+					// Call function to get the value
+					int firstIntNum = call.intNum();
+					int secondIntnum = call.intSecNum ();
+					
+    				// Answer
+					System.out.println("\n" + "Calculator of Suleman Itmer" + "\n" + "Add two integers" + "\n" + firstIntNum + " + " 
+					+ secondIntnum + " = " + (int) (firstIntNum+secondIntnum) + "\n" );
+					
+					break;  			
+				}
+				case 2:
+				{
+					System.out.println("\n" + "You have selected to " + "Subtract two integers");
+					
+					// Call function to get the value
+					int firstIntNum = call.intNum();
+					int secondIntnum = call.intSecNum();
+					
+    				// Answer
+					System.out.println("\n" +  "Calculator of Suleman Itmer" + "\n" + "Subtract two integers" + "\n" + firstIntNum + " - " 
+					+ secondIntnum + " = " + (int) (firstIntNum-secondIntnum) + "\n" );
+    			
+					break;			
+				}
+				case 3:
+				{	
+					System.out.println("\n" + "You have selected to " + "Multiply two integers");
+					
+					// Call function to get the value
+					int firstIntNum = call.intNum();
+					int secondIntnum = call.intSecNum ();
+					
+    				// Answer
+					System.out.println("\n" +  "Calculator of Suleman Itmer" + "\n" +"Multiply two integers" + "\n" + firstIntNum + " * " 
+						+ secondIntnum + " = " + (int) (firstIntNum*secondIntnum) + "\n" );
+    			
+					break;	
+				}
+				case 4:
+				{	
+					System.out.println("\n" + "You have selected to " + "Divide Two integers");
+					
+					// Call function to get the value
+					int firstIntNum = call.intNum();
+					int secondIntnum = call.intSecNum ();
+
+    					// Answer
+    					System.out.println("\n" +  "Calculator of Suleman Itmer" + "\n" + "Divide Two integers" + "\n" + firstIntNum + " / " 
+    					+ secondIntnum + " = " + (int) (firstIntNum/secondIntnum) + "\n" );
+    			
+    					break;	
+				}
+				case 5:
+				{
+					System.out.println("\n" + "You have selected to " + "Add two decimal numbers");
+					
+					// Call function to get the value
+					double firstDoubleNum = call.doubleNum ();
+					double secondDoubleNum = call.doubleSecNum ();
+					
+					// Answer
+					System.out.println( "\n" + "Calculator of Suleman Itmer" + "\n" + "Add two decimal numbers" + "\n" +  firstDoubleNum  + " + " 
+					+ secondDoubleNum + " = " +  df2.format(firstDoubleNum+secondDoubleNum) + "\n" );
+					
+					break;	
+				}
+				case 6:	
+				{
+					System.out.println("\n" + "You have selected to " + "Subtract two decimal integers");
+					
+					// Call function to get the value
+					double firstDoubleNum = call.doubleNum ();
+					double secondDoubleNum = call.doubleSecNum ();
+					
+					// Answer
+					System.out.println( "\n" + "Calculator of Suleman Itmer" + "\n" + "Subtract two decimal integers" + "\n" +  firstDoubleNum  + " - " 
+					+  secondDoubleNum + " = " +  df2.format(firstDoubleNum-secondDoubleNum) + "\n" );
+    			
+					break;	
+				}
+				case 7:
+				{
+					System.out.println("\n" + "You have selected to " + "Multiply two decimal integers");
+					
+					// Call function to get the value
+					double firstDoubleNum = call.doubleNum ();
+					double secondDoubleNum = call.doubleSecNum ();
+
+					// Answer
+					System.out.println("\n" +  "Calculator of Suleman Itmer" + "\n" + "Multiply two decimal integers" + "\n" +  firstDoubleNum  + " * " 
+    				+  secondDoubleNum + " = " +  df2.format(firstDoubleNum*secondDoubleNum) + "\n" );
+    			
+					break;	
+				}
+				case 8:
+				{
+					System.out.println("\n" + "You have selected to " + "Divide Two decimal integers");
+					
+					// Call function to get the value
+					double firstDoubleNum = call.doubleNum();
+					double secondDoubleNum = call.doubleSecNum();
+					
+					// Answer
+					System.out.println("\n" + "Calculator of Suleman Itmer" + "\n" + "Divide Two decimal integers" + "\n" +  firstDoubleNum  + " / " 
+					+  secondDoubleNum + " = " +  df2.format(firstDoubleNum/secondDoubleNum) + "\n" );
+    			
+					break;
+				}
+			}
+	menuNum= call.Mainmenu();
+	}
+	}
+  
+	// will generate menu and get the user input
+	public int Mainmenu ()
+	{
+		System.out.println(
+						"Menu - CALCULATOR ON TWO NUMBERS" +
+						"\n" + "1. " + "Add two integers" +
+						"\n" + "2. " + "Subtract two integers" +
+						"\n" + "3. " + "Multiply two integers" +
+						"\n" + "4. " + "Divide Two integers" +
+						"\n" + "5. " + "Add two decimal numbers" +
+						"\n" + "6. " + "Subtract two decimal integers" +
+						"\n" + "7. " + "Multiply two decimal integers" +
+						"\n" + "8. " + "Divide Two decimal integers" +
+						"\n" + "0. Exit");
+	
+		int menunum = keyboard.nextInt();
+		// keep the menu from 0-9
+		while  (menunum < 0 || menunum > 8)	
+		{
+			System.out.println("Your input was wrong, try again");
+			 menunum = keyboard.nextInt();	
+		} 
+		return  menunum;
+	}
+	
+	// generating 2 int numbers 
+	public int intNum ()
+	{
+		System.out.println("Enter the first number");
+		int intNum = keyboard.nextInt();
+
+		return intNum ;
+	}
+	public int intSecNum ()
+	{	
+		System.out.println("Enter the second number");
+		int intSecNum = keyboard.nextInt();
+		
+		return intSecNum ;
+	}
+	
+	// generating 2 double numbers 
+	public double doubleNum ()
+	{
+		System.out.println("Enter the number");
+		double doubleNum = keyboard.nextDouble();
+		
+		return doubleNum;	
+	}
+	public double doubleSecNum ()
+	{
+		System.out.println("Enter the second number");
+		double doubleSecNum = keyboard.nextDouble();
+		
+		return doubleSecNum;
+	}
+}
